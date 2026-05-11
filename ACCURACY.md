@@ -1,0 +1,58 @@
+# NAVIGATE Public Accuracy Ledger
+
+Independent daily recomputation of AI prediction accuracy from `data/tracking/signal_log.parquet`. Produced by the cloud /schedule routine `NAVIGATE Public Accuracy Ledger` (KST 09:00 mon-sat) running in Anthropic's environment, separate from the local daemon. This is the public record behind the **AI 정확도 매일 공개** guarantee.
+
+Methodology: only predictions with |direction| >= 0.05 (clear call, not 관망) and a verified actual return are counted. Agent stats require n>=5 samples in the window.
+
+---
+
+## 2026-05-04 23:18 KST (independent cloud audit)
+
+- 7-day: 9/13 judged = **69.2%**
+- 30-day: 44/58 judged = **75.9%**
+- All-time: 48/64 judged = **75.0%**
+
+### Per market (last 30d)
+  - DIA: 9/12 = 75.0%
+  - KOSDAQ: 8/10 = 80.0%
+  - KOSPI: 9/13 = 69.2%
+  - QQQ: 9/11 = 81.8%
+  - SPY: 9/12 = 75.0%
+
+### Top 5 agents (last 30d, n>=5)
+  - derivatives_analyst: 85.7% (n=42)
+  - wavelet_analyst: 83.0% (n=47)
+  - fundamental_analyst: 81.8% (n=44)
+  - academic_research: 80.8% (n=26)
+  - ensemble_predictor: 79.6% (n=49)
+
+### Bottom 3 agents (last 30d, n>=5)
+  - rnd_analyst: 25.0% (n=8)
+  - scenario_war_room: 20.6% (n=34)
+  - risk_manager: 13.8% (n=58)
+
+## 2026-05-04 22:43 KST (independent cloud audit)
+
+- 7-day: 9/13 judged = **69.2%**
+- 30-day: 48/63 judged = **76.2%**
+- All-time: 52/69 judged = **75.4%**
+
+### Per market (last 30d)
+  - DIA: 9/13 = 69.2%
+  - KOSDAQ: 9/11 = 81.8%
+  - KOSPI: 10/14 = 71.4%
+  - QQQ: 10/12 = 83.3%
+  - SPY: 10/13 = 76.9%
+
+### Top 5 agents (last 30d, n>=5)
+  - derivatives_analyst: 85.7% (n=42)
+  - wavelet_analyst: 83.0% (n=47)
+  - fundamental_analyst: 81.8% (n=44)
+  - academic_research: 80.8% (n=26)
+  - ensemble_predictor: 79.6% (n=49)
+
+### Bottom 3 agents (last 30d, n>=5)
+  - rnd_analyst: 25.0% (n=8)
+  - scenario_war_room: 20.6% (n=34)
+  - risk_manager: 14.3% (n=63)
+
