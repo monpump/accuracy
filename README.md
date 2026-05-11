@@ -41,7 +41,7 @@
 
 - **NAVIGATE 무료 텔레그램**: https://t.me/ai_finance_signal_bot?start=free
 - **블로그**: https://blog.naver.com/navigatekai
-- **웹사이트**: https://navigate.co.kr (5/21 자본시장법 §101 신고 후 정식 launch)
+- **웹사이트**: https://navigate-ai.co.kr (5/21 자본시장법 §101 신고 후 정식 launch)
 
 ---
 
