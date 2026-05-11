@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAVIGATE Lab — Public Accuracy Ledger</title>
+<meta name="description" content="NAVIGATE Lab AI 시그널 정확도 매일 자동 공개 ledger. Anthropic 클라우드 routine + git immutable history.">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --bg-card: #131826;
+    --text: #e4e7ed;
+    --text-muted: #8b94a8;
+    --accent: #10F2C5;
+    --accent-amber: #fbbf24;
+    --border: #1f2937;
+    --green: #10F2C5;
+    --red: #FF5C7A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  header {
+    text-align: center;
+    padding: 24px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .logo {
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .hero-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .hero-card .label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hero-card .value {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .hero-card .meta {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-card .label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .stat-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .section {
+    margin-bottom: 28px;
+  }
+  .section h2 {
+    font-size: 18px;
+    color: var(--accent-amber);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .section p, .section li {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+  .section ul {
+    padding-left: 20px;
+  }
+  .section li {
+    margin-bottom: 6px;
+  }
+  .links {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+  }
+  .links a {
+    color: var(--accent);
+    text-decoration: none;
+    display: block;
+    padding: 6px 0;
+    font-size: 15px;
+  }
+  .links a:hover {
+    text-decoration: underline;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.8;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 4px 0;
+  }
+  @media (max-width: 480px) {
+    .container { padding: 24px 16px; }
+    h1 { font-size: 22px; }
+    .hero-card .value { font-size: 36px; }
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">NAVIGATE LAB</div>
+    <h1>Public Accuracy Ledger</h1>
+    <p class="subtitle">AI 시그널 정확도 매일 자동 공개</p>
+  </header>
+
+  <div class="hero-card">
+    <div class="label">최근 30일 누적 적중률</div>
+    <div class="value">75.9%</div>
+    <div class="meta">44 / 58 judged · last update 2026-05-04</div>
+  </div>
+
+  <div class="grid-3">
+    <div class="stat-card">
+      <div class="label">7-day</div>
+      <div class="value">69.2%</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">30-day</div>
+      <div class="value">75.9%</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">All-time</div>
+      <div class="value">75.0%</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📊 검증 방법</h2>
+    <ul>
+      <li><a href="ACCURACY.md" style="color: var(--accent);">ACCURACY.md</a> 클릭 → 매일 추가 entry 확인</li>
+      <li>git history → 모든 commit 시간 + diff 추적 가능</li>
+      <li>commit author = <code>cloud-routine[bot]</code> (운영자 분리)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📐 측정 방법론</h2>
+    <ul>
+      <li><strong>Universe</strong>: SPY · QQQ · DIA · KOSPI · KOSDAQ</li>
+      <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
+      <li><strong>Hit</strong>: sign(direction) == sign(익일 actual_return)</li>
+      <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
+      <li><strong>Per-agent</strong>: n ≥ 5 샘플 이상만</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🛡️ 무엇을 약속하지 않는가</h2>
+    <ul>
+      <li>❌ 수익 보장 (자본시장법 §9-4 위반)</li>
+      <li>❌ 1:1 종목 매수·매도 권유</li>
+      <li>❌ 100% 정확한 예측</li>
+    </ul>
+    <p style="margin-top: 12px;">본 ledger는 <strong style="color: var(--text);">신뢰의 증거</strong>일 뿐 투자 권유 자료가 아닙니다.</p>
+  </div>
+
+  <div class="links">
+    <a href="https://t.me/ai_finance_signal_bot?start=free">📲 NAVIGATE 무료 텔레그램</a>
+    <a href="https://blog.naver.com/navigatekai">📝 블로그</a>
+    <a href="https://navigate.co.kr">🌐 웹사이트 (5/21 launch 예정)</a>
+  </div>
+
+  <div class="footer">
+    <p>본 ledger는 정보 제공 목적이며 개별 투자상담이 아닙니다. 투자 판단과 손익은 전적으로 본인 책임입니다.</p>
+    <p style="margin-top: 8px;">자본시장법 제101조 유사투자자문업 신고 진행 중<br>(2026-05-21 집체교육 후 금감원 신고 예정)</p>
+    <p style="margin-top: 12px;">상호: 네비게이트(NAVIGATE) · 사업자등록번호 154-05-03667</p>
+  </div>
+
+</div>
+</body>
+</html>
