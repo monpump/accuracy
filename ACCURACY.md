@@ -6,6 +6,31 @@ Methodology: only predictions with |direction| >= 0.05 (clear call, not 관망) 
 
 ---
 
+## 2026-05-12 09:00 KST (independent cloud audit)
+
+- 7-day: 13/19 judged = **68.4%**
+- 30-day: 52/67 judged = **77.6%**
+- All-time: 65/87 judged = **74.7%**
+
+### Per market (last 30d)
+  - DIA: 11/17 = 64.7%
+  - KOSDAQ: 8/9 = 88.9%
+  - KOSPI: 14/16 = 87.5%
+  - QQQ: 9/11 = 81.8%
+  - SPY: 10/14 = 71.4%
+
+### Top 5 agents (last 30d, n>=5)
+  - academic_research: 86.7% (n=30)
+  - bayesian_fusion_predictor: 85.7% (n=42)
+  - derivatives_analyst: 84.8% (n=33)
+  - debate_moderator: 82.1% (n=28)
+  - wavelet_analyst: 80.4% (n=46)
+
+### Bottom 3 agents (last 30d, n>=5)
+  - rnd_analyst: 35.0% (n=20)
+  - scenario_war_room: 30.6% (n=36)
+  - risk_manager: 20.9% (n=67)
+
 ## 2026-05-11 15:05 KST (independent cloud audit)
 
 - 7-day: 10/15 judged = **66.7%**
