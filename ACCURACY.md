@@ -131,3 +131,18 @@ Methodology: only predictions with |direction| >= 0.05 (clear call, not 관망) 
   - scenario_war_room: 20.6% (n=34)
   - risk_manager: 14.3% (n=63)
 
+---
+
+## 🔬 시그널 두 layer 비교 (정직 공개)
+
+NAVIGATE는 두 가지 시그널 layer를 동시 운영 — 시청자가 직접 비교할 수 있도록 둘 다 공개합니다.
+
+| Layer | 정확도 | 측정 건수 |
+|---|---|---|
+| **Composite agent** (35 agents 가중 합산) | **76.2%** | 21 |
+| **Macro Context scenario** (Kai-level deep reasoning) | **50.0%** | 2 |
+| Delta | **-26.2pp** | Composite 우세 |
+
+두 시그널 모두 측정: 2 cases · Agreement 0 · Conflict 2
+
+*Composite은 5/12 같이 단기 모멘텀 패턴을 잘 잡지만 mean revert에 약함. Macro Context는 Multi-factor (외국인 / 매크로 / 통화) 통합으로 큰 변곡점에 강함. 두 layer 모두 빗나간 case도 그대로 ledger에 기록됩니다.*
