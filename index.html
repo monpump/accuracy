@@ -177,31 +177,31 @@
 
   <div class="hero-card">
     <div class="label">최근 30일 누적 적중률</div>
-    <div class="value">75.9%</div>
-    <div class="meta">44 / 58 judged · last update 2026-05-04</div>
+    <div class="value">71.4%</div>
+    <div class="meta">45 / 63 judged · last update 2026-05-14</div>
   </div>
 
   <div class="grid-3">
     <div class="stat-card">
       <div class="label">7-day</div>
-      <div class="value">69.2%</div>
+      <div class="value">70.0%</div>
     </div>
     <div class="stat-card">
       <div class="label">30-day</div>
-      <div class="value">75.9%</div>
+      <div class="value">71.4%</div>
     </div>
     <div class="stat-card">
       <div class="label">All-time</div>
-      <div class="value">75.0%</div>
+      <div class="value">72.0%</div>
     </div>
   </div>
 
   <div class="section">
     <h2>📊 검증 방법</h2>
     <ul>
-      <li><a href="ACCURACY.md" style="color: var(--accent);">ACCURACY.md</a> 클릭 → 매일 추가 entry 확인</li>
-      <li>git history → 모든 commit 시간 + diff 추적 가능</li>
-      <li>commit author = <code>cloud-routine[bot]</code> (운영자 분리)</li>
+      <li>위 수치는 <code>cloud-routine[bot]</code> 가 매일 KST 09:00 자동 갱신</li>
+      <li>git history → 모든 commit 시간 + diff 추적 가능 (운영자 manipulate 불가능)</li>
+      <li>방법론: |direction| ≥ 0.05 (관망 제외) · sign(direction) == sign(actual_return)</li>
     </ul>
   </div>
 
@@ -212,7 +212,6 @@
       <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
       <li><strong>Hit</strong>: sign(direction) == sign(익일 actual_return)</li>
       <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
-      <li><strong>Per-agent</strong>: n ≥ 5 샘플 이상만</li>
     </ul>
   </div>
 
