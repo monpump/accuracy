@@ -158,6 +158,19 @@
     font-size: 12px;
     margin: 4px 0;
   }
+  .cta-card {
+    background: linear-gradient(135deg, rgba(16,242,197,0.08), var(--bg-card));
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 28px 0;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .cta-card:hover { border-color: var(--accent-amber); }
+  .cta-card .cta-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .cta-card .cta-action { font-size: 20px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .cta-card .cta-meta { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
   @media (max-width: 480px) {
     .container { padding: 24px 16px; }
     h1 { font-size: 22px; }
@@ -224,6 +237,14 @@
     </ul>
     <p style="margin-top: 12px;">본 ledger는 <strong style="color: var(--text);">신뢰의 증거</strong>일 뿐 투자 권유 자료가 아닙니다.</p>
   </div>
+
+  <a href="https://t.me/ai_finance_signal_bot?start=c_accuracy" style="text-decoration:none;">
+    <div class="cta-card">
+      <div class="cta-label">📲 정식 출시 알림 받기 · 무료 사전등록</div>
+      <div class="cta-action">텔레그램으로 시작하기 →</div>
+      <div class="cta-meta">매일 AI가 시장 방향을 먼저 공개하고 그대로 채점합니다. 종목 추천·매수권유는 하지 않습니다.</div>
+    </div>
+  </a>
 
   <div class="links">
     <a href="https://blog.naver.com/navigatekai">📝 블로그</a>
