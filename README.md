@@ -2,9 +2,9 @@
 
 **한국어 스마트머니 + AI 비전 인텔리전스의 시그널 정확도 공개 기록**
 
-매일 KST 09:00 (월~토) Anthropic 클라우드 환경에서 자동 실행되는 `cloud_accuracy_ledger.py` routine이 `signal_log.parquet` 원본 데이터를 재계산하여 [`ACCURACY.md`](./ACCURACY.md)에 prepend합니다.
+매일 KST 07:26 (월~토) 운영 PC 의 예약 작업(`write_accuracy_snapshot.py`)이 `signal_log.parquet` 원본 데이터를 재계산하여 [`ACCURACY.md`](./ACCURACY.md)에 prepend합니다.
 
-운영자가 사후 조작할 수 없는 구조입니다 — git history (immutable) + Anthropic 클라우드 sandbox (운영자 PC 분리) 이중 안전장치.
+모든 갱신은 git 이력에 시각과 변경 내용이 남습니다. 지우거나 고친 흔적도 이력에 남습니다 — 그것이 이 기록의 근거입니다.
 
 ---
 
@@ -12,7 +12,7 @@
 
 1. [`ACCURACY.md`](./ACCURACY.md) 클릭 → 매일 추가되는 entry 확인
 2. **git history** 클릭 → 모든 commit 시간 + diff 확인 가능
-3. **commit author** = `cloud-routine[bot]` (운영자 계정과 분리)
+3. **commit author** = 운영자 계정 (예약 작업이 올림 — 손으로 올린 것과 구분되지 않으므로 이력 전체를 보시면 됩니다)
 
 ---
 
@@ -29,7 +29,7 @@
 
 ## 🛡️ 무엇을 약속하지 않는가
 
-- ❌ 수익 보장 (자본시장법 §9-4 위반)
+- ❌ 수익 보장 · 손실 보전 (법으로 금지된 약속)
 - ❌ 1:1 종목 매수·매도 권유 (정보 제공 목적)
 - ❌ 100% 정확한 예측 (어떤 시스템도 못 함)
 
