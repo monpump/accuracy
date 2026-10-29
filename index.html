@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAVIGATE Lab — Public Accuracy Ledger</title>
-<meta name="description" content="NAVIGATE Lab AI 방향 예측 정확도 매일 공개 기록. 매일 아침 채점 원장에서 다시 계산해 올리고, git 이력에 모든 갱신 시각과 변경 내용이 남습니다.">
+<meta name="description" content="NAVIGATE Lab 방향 예측 채점 기록. 매일 아침 채점 원장에서 다시 계산해 올리고, '매일 오른다'고만 했을 때(무조건상승)의 적중률과 나란히 보여 줍니다. git 이력에 모든 갱신 시각과 변경 내용이 남습니다.">
 <style>
   :root {
     --bg: #0a0e17;
@@ -79,6 +79,13 @@
     font-size: 14px;
     color: var(--text-muted);
   }
+  .hero-card .baseline {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+    font-size: 14px;
+    color: var(--accent-amber);
+  }
   .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -102,6 +109,11 @@
     font-size: 22px;
     font-weight: 700;
     color: var(--text);
+  }
+  .stat-card .sub {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--accent-amber);
   }
   .section {
     margin-bottom: 28px;
@@ -185,27 +197,31 @@
   <header>
     <div class="logo">NAVIGATE LAB</div>
     <h1>Public Accuracy Ledger</h1>
-    <p class="subtitle">AI 시그널 정확도 매일 자동 공개</p>
+    <p class="subtitle">방향 예측 채점 결과 · 매일 아침 자동 갱신</p>
   </header>
 
   <div class="hero-card">
     <div class="label">최근 30일 누적 적중률</div>
     <div class="value">63.5%</div>
     <div class="meta">40 / 63 judged · 관망 41% · last update 2026-10-29</div>
+    <div class="baseline" data-window="30d">같은 표본 무조건상승('매일 오른다'고만 했을 때) 52.4% · 차이 +11.1%p</div>
   </div>
 
   <div class="grid-3">
     <div class="stat-card">
       <div class="label">7-day</div>
       <div class="value">표본 부족</div>
+      <div class="sub" data-window="7d">—</div>
     </div>
     <div class="stat-card">
       <div class="label">30-day</div>
       <div class="value">63.5%</div>
+      <div class="sub" data-window="30d">무조건상승 52.4%</div>
     </div>
     <div class="stat-card">
       <div class="label">All-time</div>
       <div class="value">56.5%</div>
+      <div class="sub" data-window="all">무조건상승 58.1%</div>
     </div>
   </div>
 
@@ -215,6 +231,8 @@
       <li>위 수치는 매일 아침(KST 07:26, 월~토) 예약 작업이 채점 원장에서 다시 계산해 올립니다</li>
       <li>git history → 모든 갱신 시각과 변경 내용이 그대로 남습니다 (지운 흔적도 이력에 남습니다)</li>
       <li>방법론: |direction| ≥ 0.05 (관망 제외) · sign(direction) == sign(actual_return)</li>
+      <li><strong>무조건상승</strong>: 같은 채점 표본에서 '매일 오른다'고만 했을 때 맞았을 비율(= 그 표본에서 실제로 오른 날의 비율)입니다. 지수는 오르는 날이 내리는 날보다 많아서 50%가 기준이 아닙니다. 적중률이 이 숫자보다 높아야 방향을 맞힌 몫이 있다고 볼 수 있습니다</li>
+      <li>30일 숫자는 표본이 작아 크게 흔들립니다. 전체 기간 숫자와 함께 보세요</li>
     </ul>
   </div>
 
@@ -225,6 +243,7 @@
       <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
       <li><strong>Hit</strong>: sign(direction) == sign(익일 actual_return)</li>
       <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
+      <li><strong>비교 기준</strong>: 무조건상승 — 창마다 같은 채점 표본에서 따로 계산</li>
     </ul>
   </div>
 
@@ -235,14 +254,14 @@
       <li>❌ 1:1 종목 매수·매도 권유</li>
       <li>❌ 100% 정확한 예측</li>
     </ul>
-    <p style="margin-top: 12px;">본 ledger는 <strong style="color: var(--text);">신뢰의 증거</strong>일 뿐 투자 권유 자료가 아닙니다.</p>
+    <p style="margin-top: 12px;">본 ledger는 <strong style="color: var(--text);">채점 기록</strong>일 뿐 투자 권유 자료가 아닙니다.</p>
   </div>
 
   <a href="https://t.me/ai_finance_signal_bot?start=c_accuracy" style="text-decoration:none;">
     <div class="cta-card">
       <div class="cta-label">📲 매일 아침 7시 30분, 무료 채널</div>
       <div class="cta-action">텔레그램으로 시작하기 →</div>
-      <div class="cta-meta">밤사이 야간선물 등락·옵션 PCR·만기까지 남은 날을 한 줄로. 방향 예측은 다음 날 같은 자리에서 채점합니다. 종목 추천·매수권유는 하지 않습니다.</div>
+      <div class="cta-meta">밤사이 야간선물 등락과 만기까지 남은 날을 한 줄로 적습니다. 코스피 방향은 아침에 미리 적고, 그날 장이 끝나면 채점합니다. 종목 추천·매수권유는 하지 않습니다.</div>
     </div>
   </a>
 
@@ -252,7 +271,9 @@
   </div>
 
   <div class="footer">
-    <p>본 ledger는 정보 제공 목적이며 개별 투자상담이 아닙니다. 투자 판단과 손익은 전적으로 본인 책임입니다.</p>
+    <p>본 서비스는 자본시장법 제101조에 따른 유사투자자문업 신고 사업자 (정보 제공 서비스)로, 정식 금융투자업자가 아닙니다.</p>
+    <p>과거·현재 숫자 서술 · 매매 권유 아님 · 개별 투자상담·자금운용 불가 · 원금 손실 가능, 손실은 투자자 귀속 · 정식 금융투자업자가 아닌 유사투자자문업자</p>
+    <p>과거 적중률은 앞으로의 적중이나 수익을 보장하지 않습니다. 투자 판단과 손익은 전적으로 본인 책임입니다.</p>
     <p style="margin-top: 12px;">상호: 네비게이트(NAVIGATE) · 사업자등록번호 154-05-03667</p>
   </div>
 
