@@ -17,7 +17,7 @@
 
 ## 📐 측정 방법론
 
-- **Universe**: SPY · QQQ · DIA · KOSPI · KOSDAQ (5개 시장)
+- **Universe**: KOSPI (2026-11-03부터). 2026-11-02까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 합산 기록은 '이전 방식'으로 이 저장소의 git 이력(index.html)에 그대로 있습니다.
 - **Signal filter**: `|direction| ≥ 0.05` (관망 시그널 제외, 명확한 방향 call만)
 - **Outcome**: 익일 종가 기준 `actual_return ≠ 0` 인 케이스만
 - **Hit**: `sign(direction) == sign(actual_return)` → 적중
