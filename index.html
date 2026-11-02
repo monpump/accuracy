@@ -201,10 +201,10 @@
   </header>
 
   <div class="hero-card">
-    <div class="label">최근 30일 누적 적중률</div>
-    <div class="value">61.8%</div>
-    <div class="meta">34 / 55 judged · 관망 43% · last update 2026-11-02</div>
-    <div class="baseline" data-window="30d">같은 표본 무조건상승('매일 오른다'고만 했을 때) 47.3% · 차이 +14.5%p</div>
+    <div class="label">최근 30일 누적 적중률 · 코스피</div>
+    <div class="value">표본 부족</div>
+    <div class="meta">13 / 19 judged · 관망 0% · last update 2026-11-03</div>
+    <div class="baseline" data-window="30d">무조건상승 비교: 표본 부족</div>
   </div>
 
   <div class="grid-3">
@@ -215,13 +215,13 @@
     </div>
     <div class="stat-card">
       <div class="label">30-day</div>
-      <div class="value">61.8%</div>
-      <div class="sub" data-window="30d">무조건상승 47.3%</div>
+      <div class="value">표본 부족</div>
+      <div class="sub" data-window="30d">—</div>
     </div>
     <div class="stat-card">
       <div class="label">All-time</div>
-      <div class="value">56.3%</div>
-      <div class="sub" data-window="all">무조건상승 57.7%</div>
+      <div class="value">53.9%</div>
+      <div class="sub" data-window="all">무조건상승 49.0%</div>
     </div>
   </div>
 
@@ -239,7 +239,7 @@
   <div class="section">
     <h2>📐 측정 방법론</h2>
     <ul>
-      <li><strong>Universe</strong>: SPY · QQQ · DIA · KOSPI · KOSDAQ</li>
+      <li><strong>Universe</strong>: KOSPI (2026-11-03 부터) · 2026-11-02 까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 기록은 '이전 방식'으로 이 저장소의 git 이력에 그대로 있습니다</li>
       <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
       <li><strong>Hit</strong>: sign(direction) == sign(익일 actual_return)</li>
       <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
