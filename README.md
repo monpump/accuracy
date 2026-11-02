@@ -18,6 +18,7 @@
 ## 📐 측정 방법론
 
 - **Universe**: KOSPI (2026-11-03부터). 2026-11-02까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 합산 기록은 '이전 방식'으로 이 저장소의 git 이력(index.html)에 그대로 있습니다.
+- **방향의 출처**: 코스피 방향은 2026-09-15부터 밤사이 야간선물 부호를 그대로 적습니다. 그 전 코스피 기록은 여러 분석을 합친 모델(앙상블)의 방향이고, 그 날짜를 가로지르는 창(all-time 등)은 두 기간을 합친 숫자입니다.
 - **Signal filter**: `|direction| ≥ 0.05` (관망 시그널 제외, 명확한 방향 call만)
 - **Outcome**: 익일 종가 기준 `actual_return ≠ 0` 인 케이스만
 - **Hit**: `sign(direction) == sign(actual_return)` → 적중
