@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAVIGATE Lab — Public Accuracy Ledger</title>
-<meta name="description" content="NAVIGATE Lab 방향 예측 채점 기록. 매일 아침 채점 원장에서 다시 계산해 올리고, '매일 오른다'고만 했을 때(무조건상승)의 적중률과 나란히 보여 줍니다. git 이력에 모든 갱신 시각과 변경 내용이 남습니다.">
+<meta name="description" content="NAVIGATE Lab 방향 기록 채점. 매일 아침 채점 원장에서 다시 계산해 올리고, '매일 오른다' · '매일 내린다'고만 했을 때의 값과 나란히 보여 줍니다. git 이력에 모든 갱신 시각과 변경 내용이 남습니다.">
 <style>
   :root {
     --bg: #0a0e17;
@@ -197,14 +197,14 @@
   <header>
     <div class="logo">NAVIGATE LAB</div>
     <h1>Public Accuracy Ledger</h1>
-    <p class="subtitle">방향 예측 채점 결과 · 매일 아침 자동 갱신</p>
+    <p class="subtitle">방향 기록 채점 결과 · 매일 아침 자동 갱신</p>
   </header>
 
   <div class="hero-card">
-    <div class="label">최근 30일 누적 적중률 · 코스피</div>
+    <div class="label">최근 30일 누적 맞힌 비율 · 코스피</div>
     <div class="value">68.2%</div>
     <div class="meta">15 / 22 judged · 관망 0% · last update 2026-11-12</div>
-    <div class="baseline" data-window="30d">같은 표본 무조건상승('매일 오른다'고만 했을 때) 45.5% · 차이 +22.7%p</div>
+    <div class="baseline" data-window="30d">같은 표본에서 '매일 오른다'고만 했을 때 45.5% · '매일 내린다'고만 했을 때 54.5%</div>
   </div>
 
   <div class="grid-3">
@@ -216,12 +216,12 @@
     <div class="stat-card">
       <div class="label">30-day</div>
       <div class="value">68.2%</div>
-      <div class="sub" data-window="30d">무조건상승 45.5%</div>
+      <div class="sub" data-window="30d">무조건상승 45.5% · 무조건하락 54.5%</div>
     </div>
     <div class="stat-card">
       <div class="label">All-time</div>
       <div class="value">55.0%</div>
-      <div class="sub" data-window="all">무조건상승 48.6%</div>
+      <div class="sub" data-window="all">무조건상승 48.6% · 무조건하락 51.4%</div>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
       <li>위 수치는 매일 아침(KST 07:26, 월~토) 예약 작업이 채점 원장에서 다시 계산해 올립니다</li>
       <li>git history → 모든 갱신 시각과 변경 내용이 그대로 남습니다 (지운 흔적도 이력에 남습니다)</li>
       <li>방법론: |direction| ≥ 0.05 (관망 제외) · sign(direction) == sign(actual_return)</li>
-      <li><strong>무조건상승</strong>: 같은 채점 표본에서 '매일 오른다'고만 했을 때 맞았을 비율(= 그 표본에서 실제로 오른 날의 비율)입니다. 지수는 오르는 날이 내리는 날보다 많아서 50%가 기준이 아닙니다. 적중률이 이 숫자보다 높아야 방향을 맞힌 몫이 있다고 볼 수 있습니다</li>
+      <li><strong>무조건상승 · 무조건하락</strong>: 같은 채점 표본에서 '매일 오른다'고만 했을 때와 '매일 내린다'고만 했을 때 맞았을 비율입니다(무조건하락 = 100 − 무조건상승). 오른 날과 내린 날의 비율은 기간마다 달라서 두 경우를 같이 적습니다. 야간선물 부호는 밤사이 이미 일어난 움직임이라, 이 비율은 예측력을 뜻하지 않습니다.</li>
       <li>30일 숫자는 표본이 작아 크게 흔들립니다. 전체 기간 숫자와 함께 보세요</li>
     </ul>
   </div>
@@ -241,9 +241,9 @@
     <ul>
       <li><strong>Universe</strong>: KOSPI (2026-11-03 부터) · 2026-11-02 까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 기록은 '이전 방식'으로 이 저장소의 git 이력에 그대로 있습니다 · ※ 9월 15일부터 코스피 방향은 밤사이 야간선물 부호입니다. All-time 숫자는 그 전(여러 분석을 합친 모델)과 뒤가 섞여 있습니다.</li>
       <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
-      <li><strong>Hit</strong>: sign(direction) == sign(익일 actual_return)</li>
+      <li><strong>Hit</strong>: sign(direction) == sign(그날 actual_return)</li>
       <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
-      <li><strong>비교 기준</strong>: 무조건상승 — 창마다 같은 채점 표본에서 따로 계산</li>
+      <li><strong>비교 기준</strong>: 무조건상승 · 무조건하락 — 창마다 같은 채점 표본에서 따로 계산</li>
     </ul>
   </div>
 
