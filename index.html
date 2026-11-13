@@ -203,7 +203,7 @@
   <div class="hero-card">
     <div class="label">최근 30일 누적 맞힌 비율 · 코스피</div>
     <div class="value">63.6%</div>
-    <div class="meta">14 / 22 judged · 관망 0% · last update 2026-11-13</div>
+    <div class="meta">14 / 22 judged · 관망 0% · last update 2026-11-14</div>
     <div class="baseline" data-window="30d">같은 표본에서 '매일 오른다'고만 했을 때 45.5% · '매일 내린다'고만 했을 때 54.5%</div>
   </div>
 
@@ -220,8 +220,8 @@
     </div>
     <div class="stat-card">
       <div class="label">All-time</div>
-      <div class="value">54.5%</div>
-      <div class="sub" data-window="all">무조건상승 48.2% · 무조건하락 51.8%</div>
+      <div class="value">51.5%</div>
+      <div class="sub" data-window="all">무조건상승 44.4% · 무조건하락 55.6%</div>
     </div>
   </div>
 
@@ -239,7 +239,7 @@
   <div class="section">
     <h2>📐 측정 방법론</h2>
     <ul>
-      <li><strong>Universe</strong>: KOSPI (2026-11-03 부터) · 2026-11-02 까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 기록은 '이전 방식'으로 이 저장소의 git 이력에 그대로 있습니다 · ※ 9월 15일부터 코스피 방향은 밤사이 야간선물 부호입니다. All-time 숫자는 그 전(여러 분석을 합친 모델)과 뒤가 섞여 있습니다.</li>
+      <li><strong>Universe</strong>: KOSPI (2026-11-03 부터) · 2026-11-02 까지는 SPY · QQQ · DIA · KOSPI · KOSDAQ 5개 시장을 함께 채점했고, 그 기록은 '이전 방식'으로 이 저장소의 git 이력에 그대로 있습니다 · All-time 은 이 저장소를 시작한 2026-05-11 부터 셉니다(그 전 기록은 이 저장소에 올리기 전이라 남이 날짜를 확인할 수 없어 뺐습니다) · ※ 9월 15일부터 코스피 방향은 밤사이 야간선물 부호입니다. All-time 숫자는 그 전(여러 분석을 합친 모델)과 뒤가 섞여 있습니다.</li>
       <li><strong>Signal filter</strong>: |direction| ≥ 0.05 (관망 제외)</li>
       <li><strong>Hit</strong>: sign(direction) == sign(그날 actual_return)</li>
       <li><strong>Window</strong>: 7d / 30d / all-time 동시 산출</li>
